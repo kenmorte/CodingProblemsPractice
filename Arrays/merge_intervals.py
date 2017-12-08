@@ -1,5 +1,5 @@
 # https://leetcode.com/problems/merge-intervals/description/
-# Asked by Palantir 11/21
+# Asked by Palantir 11/21/2017
 
 # Definition for an interval.
 # class Interval(object):
