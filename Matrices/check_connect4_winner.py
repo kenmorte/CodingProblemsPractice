@@ -1,4 +1,4 @@
-# NOTE: This was asked at my Redfin phone interview 12/7
+# NOTE: This was asked at my Redfin phone interview 12/7/2017
 
 '''
 Connect 4
