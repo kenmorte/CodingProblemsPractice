@@ -1,0 +1,41 @@
+# https://leetcode.com/problems/binary-search-tree-iterator/description/
+
+# Definition for a  binary tree node
+# class TreeNode(object):
+#     def __init__(self, x):
+#         self.val = x
+#         self.left = None
+#         self.right = None
+
+class BSTIterator(object):
+    def __init__(self, root):
+        """
+        :type root: TreeNode
+        """
+        self.stack = [(root,False)] if root else []
+
+    def hasNext(self):
+        """
+        :rtype: bool
+        """
+        if not self.stack: return False
+        root, checkedLeft = self.stack[-1]
+        if not checkedLeft:
+            self.stack[-1] = (root,True)
+            curr = root.left
+            while curr:
+                self.stack += [(curr,True)]
+                curr = curr.left
+        return self.stack
+
+    def next(self):
+        """
+        :rtype: int
+        """
+        root, _ = self.stack.pop()
+        if root.right: self.stack += [(root.right,False)]
+        return root.val
+
+# Your BSTIterator will be called like this:
+# i, v = BSTIterator(root), []
+# while i.hasNext(): v.append(i.next())
